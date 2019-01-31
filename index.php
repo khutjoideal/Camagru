@@ -1,18 +1,25 @@
 <?php
-	require('database.php');
-	require('classes/bootstrap.php');
+
+	require('includes/database.php');
+
+	require('classes/conn.php');
+	require('control.php');
+
 	include('header.php');
 	include('signup.php');
 
 	$bootstrap = new Bootstrap($_GET);
-	$controller = $bootstrap->createController;
+	$controller = $bootstrap->createController();
+	if($controller){
+		$controller->executeAction();
+	}
 ?>
 <html>
 	<section class="main-container">
 		<div class="main-wrapper">
 				<?php				
 					if (isset($_SESSION['u_id']) && $_SESSION['u_pwdchange'] == false) {
-						header("Location: /products.php");
+						header("Location: /people.php");
 						exit();
 					}
 					if ($_SESSION['u_pwdchange'] == true) {
