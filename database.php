@@ -9,7 +9,7 @@ try {
     $dbh = `USE $db_camagru`;
     $pdo->exec($dbh);
     $dbh = "CREATE TABLE IF NOT EXISTS `users` (
-            `user_id` INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT , 
+            `user_id` INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT, 
             `user_first` VARCHAR(30) NOT NULL,
             `user_last` VARCHAR(30) NOT NULL,
             `user_email` VARCHAR(128) NOT NULL,
