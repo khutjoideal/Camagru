@@ -15,7 +15,9 @@
         protected function returnView($viewmodel, $fullview){
             $view = 'views/' . get_class($stmt) . '/' . $stmt->action . '.php';
             if($fullview){
-                require('')
+                require('views/main.php');
+            } else {
+                require($view);
             }
         }
     }
