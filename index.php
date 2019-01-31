@@ -1,6 +1,6 @@
 <?php
 
-	require('includes/database.php');
+	require('config/database.php');
 
 	require('classes/conn.php');
 	require('control.php');
