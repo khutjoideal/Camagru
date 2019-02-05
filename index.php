@@ -1,10 +1,8 @@
 <?php
-
-	require('config/database.php');
+	require('includes/database.php');
 
 	require('classes/conn.php');
-	require('control.php');
-
+	require('classes/control.php');
 	include('header.php');
 	include('signup.php');
 
