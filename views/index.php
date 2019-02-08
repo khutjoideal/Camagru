@@ -1,4 +1,5 @@
 <?php
+<<<<<<< HEAD:views/index.php
 
 	require('config/database.php');
 
@@ -9,6 +10,12 @@
 	require('controllers/users.php');
 	require('controllers/shares.php');
 
+=======
+	require('includes/database.php');
+
+	require('classes/conn.php');
+	require('classes/control.php');
+>>>>>>> 52a3bd66797de63121b662038addc41c23c85100:index.php
 	include('header.php');
 	require('signup.php');
 
