@@ -4,7 +4,7 @@ session_start();
 
 if (isset($_POST['submit'])) {
 
-    include 'dbh.inc.php';
+    include 'database.php';
 
     $username = mysqli_real_escape_string($conn, $_POST['username']);
     $password = mysqli_real_escape_string($conn, $_POST['password']);

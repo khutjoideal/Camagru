@@ -19,5 +19,28 @@ class Bootstrap{
         }
     }
 
-    public function createController()
+    public function createController(){
+        //Checking classes
+        if(class_exists($stmt->controller)){
+            $parents = class_parents($stmt->controller);
+            //If extends
+            if(in_array("Controller", $parents)){
+                if(method_exists($stmt->controller, $stmt->action)){
+                    return new $stmt->controller($stmt->action, $stmt->request);
+                } else {
+                    //Method doesn't exist
+                    echo '<h1>Method doesn\'t exist</h1>';
+                    return;
+                }
+            } else {
+                //Base controller doesn't exist
+                echo '<h1>Base controller not found</h1>';
+                return;
+            }
+        } else {
+            //Controller Class doesn't exist
+            echo '<h1>Controller class doesn\'t exist</h1>';
+            return;
+        }
+    }
 }
