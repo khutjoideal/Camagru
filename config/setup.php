@@ -12,6 +12,7 @@ abstract class loginCred{
     ];
 
     protected $DB_DSN;
+    protected $pdo;
 
     public function __construct($host, $DB_USER, $DB_PASSWORD, $db_camagru, $charset, $options, $DB_DSN){
         $this->host = `127.0.0.1`;
@@ -32,6 +33,4 @@ abstract class loginCred{
         return $this->pdo;
     }
 }
-
-    
 ?>
