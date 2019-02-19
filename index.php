@@ -1,21 +1,22 @@
 <?php
+session_start();
 
-	require('config/database.php');
+require('/config/database.php');
 
-	require('classes/conn.php');
-	require('classes/control.php');
-	require('classes/model.php');
+require('/classes/conn.php');
+require('/classes/control.php');
+require('/classes/model.php');
 
-	require('controllers/home.php');
-	require('controllers/users.php');
-	require('controllers/shares.php');
+require('/controllers/home.php');
+require('/controllers/users.php');
+require('/controllers/shares.php');
 
-	require('models/home.php');
-	require('models/users.php');
-	require('models/shares.php');
+require('/models/home.php');
+require('/models/user.php');
+require('/models/share.php');
 
-	include('views/header.php');
-	require('config/signup.php');
+include_once('/views/header.php');
+require('/config/signup.php');
 
 	$bootstrap = new Bootstrap($_GET);
 	$controller = $bootstrap->createController();

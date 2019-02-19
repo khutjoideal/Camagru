@@ -8,43 +8,43 @@ class LoginDB extends loginCred{
         }
 }
 
+$run_conn = new LoginDB();
+
 try {
-
-        $sth = $dbh->prepare('SELECT your_column FROM your_table WHERE column < :parameter');
-        $sth->bindParam(':parameter', $your_variable, PDO::PARAM_STR);
-        $sth->execute();
-
         $run_conn->dsn_method();
 
-        $adap = $dbh->prepare('CREATE DATABASE IF NOT EXISTS < :parameter');
-        $adap->bindParam(':parameter', $db_camagru, PDO::PARAM_STR);
-        $adap = "CREATE DATABASE IF NOT EXISTS $db_camagru";
-        $adap->execute($dbh);
+        $adap = $run_conn->dsn_method()->prepare('CREATE DATABASE IF NOT EXISTS :db');
+        $adap->execute(['db' => $run_conn->dsn_method($db_camagru)]);
+        $run = $adap->fetch();
 
-        $adap = $dbh->prepare('USE < :parameter_1');
-        $adap->bindParam(':parameter', $db_camagru, PDO::PARAM_STR);
-        $dbh = `USE $db_camagru`;
-        $adap->execute($dbh);
+        $adap = $run_conn->dsn_method()->prepare('USE :db');
+        $adap->execute(['db' => $run_conn->dsn_method($db_camagru)]);
+        $run = $adap->fetch();
 
-        $dbh = "CREATE TABLE IF NOT EXISTS `users`(
+        $adap = $run_conn->dsn_method()->prepare("CREATE TABLE IF NOT EXISTS `users`(
         `id` INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT, 
         `user_first` VARCHAR(127) NOT NULL,
         `user_last` VARCHAR(127) NOT NULL,
         `user_email` VARCHAR(127) NOT NULL,
         `user_id` VARCHAR(127) NOT NULL UNIQUE,
         `user_password` VARCHAR(255) NOT NULL,
-        `u_profile_pic` VARCHAR(255) NOT NULL,
+        `u_profile_pic` VARCHAR(20000) NOT NULL,
         `register_date` DATETIME CURRENT_TIMESTAMP,
-        );";
-        $adap->exec($dbh);
-        $dbh = "CREATE TABLE IF NOT EXISTS `shares`
+        );");
+        $adap->execute([]);
+        $run = $adap->fetch();
+
+        $adap = $run_conn->dsn_method()->prepare("CREATE TABLE IF NOT EXISTS `shares`
         `id` INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT, 
         `user_id` INT NOT NULL,
         `title` VARCHAR(255),
         `body` TEXT,
         `link` VARCHAR(255),
         `create_date` DATETIME CURRENT_TIMESTAMP,
-        )";
+        )");
+        $adap->execute([]);
+        $run = $adap->fetch();
+
         echo "DB created successfully";
 } catch (\PDOException $e) {
         echo $dbh . "<br>" . $e->getMessage();

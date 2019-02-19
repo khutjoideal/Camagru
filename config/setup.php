@@ -14,7 +14,7 @@ abstract class loginCred{
     protected $DB_DSN;
     protected $pdo;
 
-    public function __construct($host, $DB_USER, $DB_PASSWORD, $db_camagru, $charset, $options, $DB_DSN){
+    public function __construct(){
         $this->host = `127.0.0.1`;
         $this->DB_USER = `root`;
         $this->DB_PASSWORD = `1og5fEsvkiK`;
@@ -30,7 +30,11 @@ abstract class loginCred{
     }
 
     public function dsn_method(){
-        return $this->pdo;
+        if ($db_camagru == 1){
+            return $this->db_camagru;
+        } else {
+            return $this->pdo;
+        }
     }
 }
 ?>
