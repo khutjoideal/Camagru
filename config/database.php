@@ -47,6 +47,6 @@ try {
 
         echo "DB created successfully";
 } catch (\PDOException $e) {
-        echo $dbh . "<br>" . $e->getMessage();
+        return ;
 }
 ?>
