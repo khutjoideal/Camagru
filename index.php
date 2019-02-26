@@ -28,13 +28,13 @@ require('config/signup.php');
 	<section class="main-container">
 		<div class="main-wrapper">
 				<?php				
-					if (isset($_SESSION['u_id']) && $_SESSION['u_pwdchange'] == false) {
+					if (isset($_SESSION['id']) && $_SESSION['u_pwdchange'] == false) {
 						header("Location: /people.php");
 						exit();
 					}
-					if ($_SESSION['u_pwdchange'] == true) {
+					if ($_SESSION['user_password'] == true) {
 						echo "You're password has successfully been changed!";
-						$_SESSION['u_pwdchange'] == false;
+						$_SESSION['user_password'] == false;
 					}
 				?>
 
