@@ -10,7 +10,7 @@ class loginCred{
     public function dsn_method(){
         $this->host = "localhost";
         $this->DB_USER = "root";
-        $this->DB_PASSWORD = "1og5fEsvkiK";
+        $this->DB_PASSWORD = "";
         $this->db_camagru = "camagru_database";
         $this->charset = "utf8mb4";
         $this->options = [
